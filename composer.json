@@ -1,0 +1,23 @@
+{
+    "name": "djfrailey/reinvent",
+    "description": "Reinventing the wheel",
+    "type": "Framework",
+    "require-dev": {
+    },
+    "authors": [
+        {
+            "name": "David Frailey",
+            "email": "david@snapshot.is"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^3.1",
+        "phpunit/phpunit": "^5.6"
+    },
+    "autoload": {
+        "psr-4" : {
+            "App\\" : "App/",
+            "Reinvent\\" : "Reinvent/"
+        }
+    }
+}
