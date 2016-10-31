@@ -18,13 +18,19 @@ class Container
      * Collection of bound instances
      * @var array
      */
-    protected $boundInstances = [];
+    protected $boundInstances;
 
     /**
      * Collection of bound class references.
      * @var array
      */
-    protected $boundClasses = [];
+    protected $boundClasses;
+
+    public function __construct()
+    {
+        $this->boundInstances = new Collection();
+        $this->boundClasses = new Collection();
+    }
 
     /**
      * Registers a singleton instance with the container
@@ -79,9 +85,9 @@ class Container
     {
         $resolution = null;
 
-        if (array_key_exists($abstract, $this->boundInstances)) {
+        if ($this->boundInstances->has($abstract)) {
             $resolution = $this->boundInstances[$abstract];
-        } elseif (array_key_exists($abstract, $this->boundClasses)) {
+        } elseif ($this->boundClasses->has($abstract)) {
             $concrete = $this->boundClasses[$abstract];
 
             if ($this->isClosure($concrete)) {
@@ -157,10 +163,10 @@ class Container
 
     public function isBound(string $abstract) : bool
     {
-        $isBound = array_key_exists($abstract, $this->boundInstances);
+        $isBound = $this->boundInstances->has($abstract);
 
         if ($isBound === false) {
-            $isBound = array_key_exists($abstract, $this->boundClasses);
+            $isBound = $this->boundClasses->has($abstract);
         }
 
         return $isBound;

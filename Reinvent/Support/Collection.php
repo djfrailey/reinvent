@@ -215,11 +215,9 @@ class Collection implements ArrayAccess, Iterator
         unset($this->data[$offset]);
     }
 
-    public static function combine($keys, $values) : Collection
+    public function has($key)
     {
-        $keys = $this->getArrayableValues($keys);
-        $values = $this->getArrayableValues($values);
-        return new static(array_combine($keys, $values));
+        return $this->offsetExists($key);
     }
 
     protected function getArrayableValues($arrayable) : array
@@ -248,5 +246,12 @@ class Collection implements ArrayAccess, Iterator
         }
 
         return $values;
+    }
+
+    public static function combine($keys, $values) : Collection
+    {
+        $keys = $this->getArrayableValues($keys);
+        $values = $this->getArrayableValues($values);
+        return new static(array_combine($keys, $values));
     }
 }
