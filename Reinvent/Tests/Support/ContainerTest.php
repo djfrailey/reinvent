@@ -3,7 +3,7 @@
 namespace Reinvent\Tests\Core;
 
 use PHPUnit\Framework\TestCase;
-use Reinvent\Core\Support\Container;
+use Reinvent\Support\Container;
 use Reinvent\Tests\Mock\Person;
 use \Exception;
 

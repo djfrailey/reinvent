@@ -2,7 +2,7 @@
 
 declare (strict_types = 1);
 
-namespace Reinvent\Core\Support;
+namespace Reinvent\Support;
 
 use \ReflectionClass;
 use \ReflectionObject;

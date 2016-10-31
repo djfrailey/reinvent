@@ -1,7 +1,7 @@
 <phpunit bootstrap="bootstrap.php">
   <testsuites>
-    <testsuite name="Core">
-      <directory>Reinvent/Tests/Core</directory>
+    <testsuite name="Support">
+      <directory>Reinvent/Tests/Support</directory>
     </testsuite>
   </testsuites>
 </phpunit>
