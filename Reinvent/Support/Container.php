@@ -95,8 +95,13 @@ class Container
             } else if ($this->isInstantiable($concrete)) {
                 $resolution = $this->resolveInstantiable($concrete);
             }
-        } else if ($this->isInstantiable($abstract)) {
-            $resolution = $this->resolveInstantiable($abstract);
+        } else {
+
+            if ($this->isInstantiable($abstract)) {
+                $resolution = $this->resolveInstantiable($abstract);
+            } else if ($this->isClosure($abstract)) {
+                $resolution = $this->resolveClosure($abstract);
+            }
         }
 
         return $resolution;
