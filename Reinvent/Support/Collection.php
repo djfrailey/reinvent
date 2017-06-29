@@ -220,6 +220,11 @@ class Collection implements ArrayAccess, Iterator
         return $this->offsetExists($key);
     }
 
+    public function toArray() : array
+    {
+        return $this->data;
+    }
+
     protected function getArrayableValues($arrayable) : array
     {
         $values = [];
